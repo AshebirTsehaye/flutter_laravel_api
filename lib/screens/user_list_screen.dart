@@ -14,7 +14,6 @@ class _UserListScreenState extends State<UserListScreen> {
   @override
   void initState() {
     super.initState();
-    // Fetch users when the screen loads
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<UserProvider>(context, listen: false).fetchUsers();
     });
@@ -28,6 +27,8 @@ class _UserListScreenState extends State<UserListScreen> {
       appBar: AppBar(
         title: const Text('User List'),
         backgroundColor: Colors.deepPurple,
+        elevation: 2,
+        centerTitle: true,
       ),
       body: userProvider.isLoading
           ? const Center(child: CircularProgressIndicator())
